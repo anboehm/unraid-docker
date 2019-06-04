@@ -14,11 +14,7 @@
 		bulk email).
 	</Overview>
 	<Support>none</Support>
-	<Registry>https://registry.hub.docker.com/u/binhex/arch-nzbget/
-	</Registry>
-	<GitHub>https://github.com/anboehm/unraid-docker/master/spamassassin-isbg
-	</GitHub>
-	<Repository>anboehm/spamassassin-isbg</Repository>
+	<GitHub>https://github.com/anboehm/unraid-docker/tree/master/tower/spamassassin-isbg</GitHub>
 	<Project>https://isbg.readthedocs.io/</Project>
 	<BindTime>true</BindTime>
 	<Privileged>false</Privileged>
