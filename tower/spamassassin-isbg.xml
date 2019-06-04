@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+	<TemplateURL>https://raw.githubusercontent.com/anboehm/unraid-docker/master/tower/spamassassin-isbg.xml
+	</TemplateURL>
+	<Beta>False</Beta>
+	<Category>Mail:</Category>
+	<Name>spamassassin-isbg</Name>
+	<Description>
+
+	</Description>
+	<Overview>
+		Apache SpamAssassin is the #1 Open Source anti-spam platform giving system
+		administrators a filter to classify email and block spam (unsolicited
+		bulk email).
+	</Overview>
+	<Support>none</Support>
+	<Registry>https://registry.hub.docker.com/u/binhex/arch-nzbget/
+	</Registry>
+	<GitHub>https://github.com/anboehm/unraid-docker/master/spamassassin-isbg
+	</GitHub>
+	<Repository>anboehm/spamassassin-isbg</Repository>
+	<Project>https://isbg.readthedocs.io/</Project>
+	<BindTime>true</BindTime>
+	<Privileged>false</Privileged>
+	<Networking>
+		<Mode>bridge</Mode>
+	</Networking>
+	<Environment>
+		<Variable>
+			<Name>IMAPSERVER</Name>
+			<Value>imap.example.com</Value>
+		</Variable>
+		<Variable>
+			<Name>IMAPUSER</Name>
+			<Value>---</Value>
+		</Variable>
+		<Variable>
+			<Name>IMAPPASS</Name>
+			<Value>---</Value>
+		</Variable>
+		<Variable>
+			<Name>IMAPINBOX</Name>
+			<Value>INBOX</Value>
+		</Variable>
+		<Variable>
+			<Name>IMAPSPAMBOX</Name>
+			<Value>Junk</Value>
+		</Variable>
+		<Variable>
+			<Name>LEARNSPAMBOX</Name>
+			<Value>---</Value>
+		</Variable>
+		<Variable>
+			<Name>LEARNHAMBOX</Name>
+			<Value>---</Value>
+		</Variable>
+	</Environment>
+	<Data>
+		<Volume>
+			<HostDir>/mnt/cache/appdata/config</HostDir>
+			<ContainerDir>/config</ContainerDir>
+			<Mode>rw</Mode>
+		</Volume>
+		<Volume>
+			<HostDir>/mnt/user/appdata/data</HostDir>
+			<ContainerDir>/data</ContainerDir>
+			<Mode>rw</Mode>
+		</Volume>
+	</Data>
+	<Icon>https://de.wikipedia.org/wiki/SpamAssassin#/media/File:SpamAssassin_logo.png</Icon>
+	<ExtraParams></ExtraParams>
+</Containers>
