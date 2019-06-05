@@ -1,1 +1,0 @@
-debian-spamd  ALL = NOPASSWD: /usr/sbin/service, /etc/cron.daily/sa-update

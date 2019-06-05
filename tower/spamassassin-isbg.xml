@@ -1,68 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Containers>
-	<TemplateURL>https://raw.githubusercontent.com/anboehm/unraid-docker/master/tower/spamassassin-isbg.xml
-	</TemplateURL>
-	<Beta>False</Beta>
-	<Category>Mail:</Category>
+<Container version="2">
 	<Name>spamassassin-isbg</Name>
-	<Description>
-
-	</Description>
 	<Overview>
-		Apache SpamAssassin is the #1 Open Source anti-spam platform giving system
-		administrators a filter to classify email and block spam (unsolicited
+		Apache SpamAssassin is the #1 Open Source anti-spam platform
+		giving system
+		administrators a filter to classify email and block spam
+		(unsolicited
 		bulk email).
 	</Overview>
-	<Support>none</Support>
-	<GitHub>https://github.com/anboehm/unraid-docker/tree/master/tower/spamassassin-isbg</GitHub>
-	<Project>https://isbg.readthedocs.io/</Project>
-	<BindTime>true</BindTime>
+	<Registry>https://hub.docker.com/r/vanet/spamassassin-isbg</Registry>
+	<Repository>vanet/spamassassin-isbg</Repository>
 	<Privileged>false</Privileged>
-	<Networking>
-		<Mode>bridge</Mode>
-	</Networking>
-	<Environment>
-		<Variable>
-			<Name>IMAPSERVER</Name>
-			<Value>imap.example.com</Value>
-		</Variable>
-		<Variable>
-			<Name>IMAPUSER</Name>
-			<Value>---</Value>
-		</Variable>
-		<Variable>
-			<Name>IMAPPASS</Name>
-			<Value>---</Value>
-		</Variable>
-		<Variable>
-			<Name>IMAPINBOX</Name>
-			<Value>INBOX</Value>
-		</Variable>
-		<Variable>
-			<Name>IMAPSPAMBOX</Name>
-			<Value>Junk</Value>
-		</Variable>
-		<Variable>
-			<Name>LEARNSPAMBOX</Name>
-			<Value>---</Value>
-		</Variable>
-		<Variable>
-			<Name>LEARNHAMBOX</Name>
-			<Value>---</Value>
-		</Variable>
-	</Environment>
-	<Data>
-		<Volume>
-			<HostDir>/mnt/cache/appdata/config</HostDir>
-			<ContainerDir>/config</ContainerDir>
-			<Mode>rw</Mode>
-		</Volume>
-		<Volume>
-			<HostDir>/mnt/user/appdata/data</HostDir>
-			<ContainerDir>/data</ContainerDir>
-			<Mode>rw</Mode>
-		</Volume>
-	</Data>
-	<Icon>https://de.wikipedia.org/wiki/SpamAssassin#/media/File:SpamAssassin_logo.png</Icon>
-	<ExtraParams></ExtraParams>
-</Containers>
+	<Support>none</Support>
+	<Network Default="bridge">bridge</Network>
+	<Category>Tools:</Category>
+
+	<Icon>https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/SpamAssassin_logo.png/1280px-SpamAssassin_logo.png</Icon>
+
+	<Config Type="Path" Name="Config Directory"
+		Target="/var/lib/spamassassin"
+		Default="/mnt/user/appdata/config/spamassassin" Mode="rw"
+		Description="Stores all the persistent data and configuration"
+		Required="true" />
+
+	<Config Type="Variable" Name="IMAP-Server" Target="IMAPSERVER"
+		Default="imap.example.com" Description="Your IMAP-Server-Adress"
+		Required="true" />
+	<Config Type="Variable" Name="Username" Target="IMAPUSER"
+		Default="" Description="Your imap username" Required="true" />
+	<Config Type="Variable" Name="Password" Target="IMAPPASS"
+		Default="" Description="Your imap password" Required="true"
+		Mask="true" />
+	<Config Type="Variable" Name="Inbox" Target="IMAPINBOX"
+		Default="INBOX" Description="Your imap inbox folder" Required="true" />
+	<Config Type="Variable" Name="Spambox" Target="IMAPSPAMBOX"
+		Default="Junk" Description="Your imap junk folder" Required="true" />
+	<Config Type="Variable" Name="LearnSpamBox"
+		Target="LEARNSPAMBOX" Default="LearnSPAM"
+		Description="Your folder on imap server where you put spam to learn"
+		Required="true" />
+	<Config Type="Variable" Name="LearnHamBox" Target="LEARNHAMBOX"
+		Default="LearnHAM"
+		Description="Your folder on imap where you put ham to learn"
+		Required="true" />
+</Container>
