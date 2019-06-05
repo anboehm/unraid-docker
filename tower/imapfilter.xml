@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+	<Name>imapfilter</Name>
+	<Overview>
+		IMAPFilter is a mail filtering utility. It connects to remote
+		mail servers using the Internet Message Access Protocol (IMAP), sends
+		searching queries to the server and processes mailboxes based on the
+		results. It can be used to delete, copy, move, flag, etc. messages
+		residing in mailboxes at the same or different mail servers. The 4rev1
+		and 4 versions of the IMAP protocol are supported.
+
+		IMAPFilter uses the
+		Lua programming language as a configuration and extension language.
+	</Overview>
+	<Registry>https://hub.docker.com/r/unclesamwk/docker-imapfilter</Registry>
+	<Repository>unclesamwk/docker-imapfilter</Repository>
+	<Privileged>false</Privileged>
+	<Support>none</Support>
+	<Network Default="bridge">bridge</Network>
+	<Category>Tools:</Category>
+
+	<Icon>https://raymii.org/s/inc/img/mail-send-receive.png
+	</Icon>
+
+	<Config Type="Path" Name="Config Directory"
+		Target="/root/.imapfilter"
+		Default="/mnt/user/appdata/config/imapfilter" Mode="rw"
+		Description="Stores the configuration scripts config.lua"
+		Required="true" />
+
+	<Config Type="Variable" Name="LUA-Path" Target="LUA_PATH"
+		Default="/root/.imapfilter/?.lua" Description="Path to your config.lua script"
+		Required="true" />
+</Container>
