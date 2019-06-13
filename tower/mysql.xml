@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+	<Name>mysql</Name>
+	<Overview>
+		MySQL is the world's most popular open source database.
+		Whether you are a fast growing web property, technology ISV or large
+		enterprise, MySQL can cost-effectively help you deliver high
+		performance, scalable database applications.
+	</Overview>
+	<Registry>https://hub.docker.com/_/mysql</Registry>
+	<Repository>mysql</Repository>
+	<Privileged>false</Privileged>
+	<Support>none</Support>
+	<Network Default="bridge">bridge</Network>
+	<Category>Tools:</Category>
+
+	<Icon>https://www.mysql.com/common/logos/logo-mysql-170x115.png</Icon>
+
+	<Config Type="Variable" Name="Root Password"
+		Target="MYSQL_ROOT_PASSWORD" Default=""
+		Description="The password of the local root-user" Mask="true"
+		Required="true" />
+	<Config Type="Port" Name="MySQL-Port" Target="3306"
+		Default="3306" Mode="tcp" Description="Socket connection to mysql"
+		Required="true" />
+</Container>
