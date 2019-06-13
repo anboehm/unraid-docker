@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+	<Name>volkszaehler-logger</Name>
+	<Overview>
+		vzlogger ist ein Werkzeug zum Lesen der Messwerte von
+		Sensoren und Smartmeter um sie an die volkszahler.org Middleware
+		weiterzureichen
+	</Overview>
+	<Registry>https://hub.docker.com/r/treban/smartmeter-vzlogger
+	</Registry>
+	<Repository>treban/smartmeter-vzlogger</Repository>
+	<Privileged>true</Privileged>
+	<Support>none</Support>
+	<Network Default="bridge">bridge</Network>
+	<Category>Tools:</Category>
+
+	<Icon>https://wiki.volkszaehler.org/_media/logo.png</Icon>
+
+	<Config Type="Path" Name="Config Directory" Target="/cfg"
+		Default="/mnt/user/appdata/config/vzlogger" Mode="rw"
+		Description="Stores the configuration" Required="true" />
+	<Config Type="Port" Name="HTTPD-Server" Target="8080" Default="8080"
+		Mode="tcp" Description="This is for poll and queries"
+		Required="false" />
+</Container>

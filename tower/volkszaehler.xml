@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+	<Name>volkszaehler</Name>
+	<Overview>
+		volkszaehler.org ist ein freies Smart Meter im Selbstbau. Der
+		Nutzer behält dabei die vollständige Kontrolle über die anfallenden
+		Strom, Wasser und Gaskosten.</Overview>
+	<Registry>https://hub.docker.com/r/volkszaehler/volkszaehler</Registry>
+	<Repository>volkszaehler/volkszaehler</Repository>
+	<Privileged>false</Privileged>
+	<Support>none</Support>
+	<Network Default="bridge">bridge</Network>
+	<Category>Tools:</Category>
+	<WebUI>http://[IP]:[PORT:8002]/index.html</WebUI>
+
+	<Icon>https://wiki.volkszaehler.org/_media/logo.png</Icon>
+
+	<Config Type="Path" Name="Config Directory" Target="/vz/etc"
+		Default="/mnt/user/appdata/config/volkszaehler" Mode="rw"
+		Description="Stores the configuration" Required="true" />
+	<Config Type="Port" Name="WebUI" Target="8080" Default="8080"
+		Mode="tcp" Description="This is the volkszaehler WEBUI"
+		Required="true" />
+</Container>
+ 
