@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
+<<<<<<< HEAD
 	<Name>volkszaehler-logger</Name>
 	<Overview>
 		vzlogger ist ein Werkzeug zum Lesen der Messwerte von
